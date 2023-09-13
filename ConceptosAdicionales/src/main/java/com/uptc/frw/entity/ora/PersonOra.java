@@ -10,6 +10,7 @@ public class PersonOra {
 
     @Id
     @Column(name = "ID_PERSONA")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "NOMBRES")
@@ -27,6 +28,12 @@ public class PersonOra {
     private List<BookOra> books;
 
     public PersonOra(){}
+
+    public PersonOra(String name, String lastName, String nationality) {
+        this.name = name;
+        this.lastName = lastName;
+        this.nationality = nationality;
+    }
 
     public PersonOra(Long id, String name, String lastName, String nationality, List<BillOra> bills, List<BookOra> books) {
         this.id = id;

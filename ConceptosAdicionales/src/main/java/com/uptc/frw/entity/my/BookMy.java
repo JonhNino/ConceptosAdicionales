@@ -10,6 +10,8 @@ public class BookMy {
 
     @Id
     @Column(name = "ID_LIBRO")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
+    @SequenceGenerator(name = "book_seq",sequenceName = "LIBROS_SEQ",allocationSize = 1)
     private Long id;
     @Column(name = "TITULO")
     private String title;

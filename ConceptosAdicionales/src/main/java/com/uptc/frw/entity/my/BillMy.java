@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "COMPRAS")
@@ -11,6 +12,13 @@ public class BillMy {
 
     @Id
     @Column(name = "ID_COMPRA")
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "table_gen")
+    @TableGenerator(name = "table_gen",
+            table="generator",
+            pkColumnName = "table_name",
+            valueColumnName = "valor",
+            pkColumnValue = "compras",
+            allocationSize = 1)
     private Long id;
 
     @Column(name = "ID_PERSONA", insertable = false, updatable = false)

@@ -10,6 +10,7 @@ public class PersonMy {
 
     @Id
     @Column(name = "ID_PERSONA")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "NOMBRES")
@@ -27,6 +28,12 @@ public class PersonMy {
     private List<BookMy> books;
 
     public PersonMy(){}
+
+    public PersonMy( String name, String lastName, String nationality) {
+        this.name = name;
+        this.lastName = lastName;
+        this.nationality = nationality;
+    }
 
     public PersonMy(Long id, String name, String lastName, String nationality, List<BillMy> bills, List<BookMy> books) {
         this.id = id;

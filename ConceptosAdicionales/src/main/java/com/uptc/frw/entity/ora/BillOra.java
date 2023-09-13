@@ -11,6 +11,13 @@ public class BillOra {
 
     @Id
     @Column(name = "ID_COMPRA")
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "table_gen")
+    @TableGenerator(name = "table_gen",
+            table="generator",
+            pkColumnName = "table_name",
+            valueColumnName = "valor",
+            pkColumnValue = "compras",
+            allocationSize = 1)
     private Long id;
 
     @Column(name = "ID_PERSONA", insertable = false, updatable = false)

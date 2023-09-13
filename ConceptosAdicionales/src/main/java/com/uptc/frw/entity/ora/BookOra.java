@@ -10,6 +10,14 @@ public class BookOra {
 
     @Id
     @Column(name = "ID_LIBRO")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_seq")
+    @SequenceGenerator(name="book_seq",sequenceName = "LIBROS_SEQ",allocationSize = 1)
+    @TableGenerator(name = "table_gen",
+            table="generator",
+            pkColumnName = "table_name",
+            valueColumnName = "valor",
+            pkColumnValue = "compras",
+            allocationSize = 1)
     private Long id;
     @Column(name = "TITULO")
     private String title;
